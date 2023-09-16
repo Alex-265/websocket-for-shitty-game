@@ -80,6 +80,7 @@ class Program {
         print($"{name} Version {version} id {buildID}");
         print($"Loading at {Environment.CurrentDirectory}");
         print($"For User {Environment.UserName} for Machine {Environment.MachineName}");
+
         print("Initializing Files");
         dataManager.LoadUsers("User.json");
         dataManager.LoadQuestions("data.json");
