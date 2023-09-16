@@ -26,6 +26,33 @@ namespace Jeopardy_Websocket {
             return users.FirstOrDefault(u => u.Name == name);
         }
 
+        public void addPoints(string name, int points) {
+            try {
+                User user = GetUser(name);
+                user.Points = user.Points + points;
+            } catch {
+                Console.WriteLine("Invalid User or points!");
+                return;
+            }
+            return;
+        }
+
+        public void removePoints(string name, int points) {
+            try {
+                User user = GetUser(name);
+                user.Points = user.Points - points;
+            } catch {
+                Console.WriteLine("Invalid User or points!");
+            }
+        }
+
+        public int getPoints(string name) { 
+        try {
+                User user = GetUser(name);
+                return (int)user.Points;
+            } catch { return 0; }
+        }
+        
         public void AddQuestion(Question question) {
             questions.Add(question);
         }
